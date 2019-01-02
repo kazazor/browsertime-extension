@@ -29,11 +29,12 @@
 
   // https://developer.mozilla.org/en-US/Add-ons/WebExtensions/API/cookies/set
   // https://developer.chrome.com/extensions/cookies#method-set
-  function setCookie(name, value, url) {
+  function setCookie(name, value, url, domain) {
     return window.browser.cookies.set({
       url,
       name,
-      value
+      value,
+      domain
     });
   }
 
@@ -80,7 +81,7 @@
     const cookies = (params.cookie || [])
       .map(cookieString => cookieString.split(/@(.+)@(.+)/))
       .map(parts => {
-        return { name: parts[0], value: parts[1], url: parts[2] };
+        return { name: parts[0], value: parts[1], url: parts[2], domain: parts[3] };
       });
 
     return {
@@ -170,7 +171,7 @@
 
     async function setCookies() {
       return actions.cookies.map(cookie =>
-        setCookie(cookie.name, cookie.value, cookie.url)
+        setCookie(cookie.name, cookie.value, cookie.url, cookie.domain)
       );
     }
 

@@ -52,9 +52,10 @@ If you want to set a cookie.
 name: cookieName
 value: cookieValue
 url: https://www.sitespeed.io/
+domain: .sitespeed.io
 </pre>
 
-Go to http://127.0.0.1/?cookie=cookieName@cookieValue@https://www.sitespeed.io/
+Go to http://127.0.0.1/?cookie=cookieName@cookieValue@https://www.sitespeed.io/@.sitespeed.io
 
 # Test the plugin in Firefox
 
