@@ -81,7 +81,7 @@
     const cookies = (params.cookie || [])
       .map(cookieString => cookieString.split(/@(.+)@(.+)/))
       .map(parts => {
-        return { name: parts[0], value: parts[1], url: parts[2] };
+        return { name: parts[0], value: parts[1], url: parts[2], domain: parts[3] };
       });
 
     return {
